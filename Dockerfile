@@ -1,7 +1,15 @@
 FROM python:3.11-slim-bullseye
-WORKDIR /app
-RUN apt-get update && apt-get install -y git
-RUN git clone https://github.com/Kendll2/umitDady.git .
+     
+WORKDIR /app      
+    
+RUN apt-get update && \
+    apt-get install -y git && \
+    rm -rf /var/lib/apt/lists/*
+
+RUN git clone https://github.com/Xquantum398/umitDady.git .
+
 RUN pip install --no-cache-dir -r requirements.txt
+
 EXPOSE 7860
-CMD ["uvicorn", "run:main_app", "--host", "0.0.0.0", "--port", "7860", "--workers", "4"]
+
+CMD ["gunicorn", "--workers", "4", "--threads", "2", "--bind", "0.0.0.0:7860", "app:app"]
