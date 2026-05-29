@@ -6,7 +6,7 @@ RUN apt-get update && \
     apt-get install -y git && \
     rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/Xquantum398/umitDady.git .
+RUN git clone https://github.com/Kendll2/umitDady.git .
 
 RUN pip install --no-cache-dir -r requirements.txt
 
