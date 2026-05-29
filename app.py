@@ -82,8 +82,8 @@ def index():
         )
 
     if live_id:
-        stream_url = f"https://inattv1309.xyz/channel.html?id=b2"
-        headers = {**HEADERS_TV, "referer": f"https://inattv1309.xyz/channel.html?id=b2"}
+        stream_url = f"https://dlhd.pk/stream/stream-{live_id}.php"
+        headers = {**HEADERS_TV, "referer": f"https://dlhd.pk/watch.php?id={live_id}"}
 
         r1 = SESSION.get(stream_url, headers=headers, timeout=15)
         site = r1.text
@@ -115,4 +115,4 @@ def index():
     return Response("Kullanım: ?ID=<no> veya ?CDN=<url>", status=400)
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=7860, debug=False)
+    app.run(host="0.0.0.0", port=5000, debug=False)
