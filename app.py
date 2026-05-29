@@ -82,8 +82,8 @@ def index():
         )
 
     if live_id:
-        stream_url = f"https://inattv1309.xyz/channel.html-{live_id}.php"
-        headers = {**HEADERS_TV, "referer": f"https://inattv1309.xyz/.php?id={live_id}"}
+        stream_url = f"https://inattv1309.xyz/channel.html?id=b5"
+        headers = {**HEADERS_TV, "referer": f"https://inattv1309.xyz/channel.html?id=b5"}
 
         r1 = SESSION.get(stream_url, headers=headers, timeout=15)
         site = r1.text
